@@ -229,6 +229,36 @@ section {
     line-height: 1.8;
 }
 
+.about-text-lead {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    font-weight: 400;
+    margin-bottom: var(--spacing-md);
+}
+
+.tech-stack {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.tech-stack-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+.tech-stack-list {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+}
+
 /* Projects Section */
 .projects {
     padding: var(--spacing-xl) 0;
@@ -272,8 +302,16 @@ section {
 .project-name {
     font-size: 2rem;
     font-weight: 500;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
     letter-spacing: -0.02em;
+}
+
+.project-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
 }
 
 .project-description {
@@ -281,6 +319,56 @@ section {
     color: var(--color-secondary);
     margin-bottom: var(--spacing-md);
     line-height: 1.8;
+}
+
+.project-description-text {
+    font-size: 1.125rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+.project-innovation {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-bg-alt);
+    border-radius: 8px;
+    border-left: 3px solid var(--color-accent);
+}
+
+.innovation-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.innovation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.innovation-list li {
+    font-size: 1rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.innovation-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.innovation-list li:last-child {
+    margin-bottom: 0;
 }
 
 .project-badges {
@@ -310,6 +398,9 @@ section {
 
 .project-links {
     margin-top: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -335,6 +426,21 @@ section {
     background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: var(--color-bg-alt);
 }
 
 /* Contact Section */
@@ -421,8 +527,18 @@ section {
     }
 
     .about-text,
-    .project-description {
+    .about-text-lead,
+    .project-description,
+    .project-description-text {
         font-size: 1rem;
+    }
+
+    .project-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .tech-stack {
+        margin-top: var(--spacing-md);
     }
 
     .contact-link {
