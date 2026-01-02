@@ -68,3 +68,83 @@ if (hero) {
     hero.style.transform = 'translateY(0)';
 }
 
+// --- GSAP Hero Text Animation ---
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if GSAP is loaded
+    if (typeof gsap === 'undefined') {
+        console.warn('GSAP not loaded, skipping text animation');
+        return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const splitText = (element) => {
+        if (!element) return [];
+        const text = element.textContent.trim();
+        const words = text.split(' ');
+        element.innerHTML = '';
+        const chars = [];
+
+        words.forEach((word, wordIndex) => {
+            const wordSpan = document.createElement('span');
+            wordSpan.style.display = 'inline-block';
+            wordSpan.style.whiteSpace = 'nowrap';
+            wordSpan.style.marginRight = '0.25em';
+
+            const wordChars = word.split('');
+            wordChars.forEach(char => {
+                const charSpan = document.createElement('span');
+                charSpan.textContent = char === ' ' ? '\u00A0' : char;
+                charSpan.style.display = 'inline-block';
+                charSpan.classList.add('split-char');
+                wordSpan.appendChild(charSpan);
+                chars.push(charSpan);
+            });
+
+            element.appendChild(wordSpan);
+        });
+        return chars;
+    };
+
+    const animateHeroText = () => {
+        const h1 = document.querySelector('.hero-title');
+        if (!h1) return;
+
+        // Ensure fonts are loaded before splitting/animating
+        document.fonts.ready.then(() => {
+            const chars = splitText(h1);
+            if (chars.length === 0) return;
+
+            // Set initial state
+            gsap.set(chars, { opacity: 0, y: 40 });
+
+            // Animate on page load
+            gsap.to(chars, {
+                opacity: 1,
+                y: 0,
+                duration: 1.25,
+                ease: 'power3.out',
+                stagger: 0.05,
+                delay: 0.3
+            });
+        });
+    };
+
+    // Wait a bit for GSAP to be fully ready
+    setTimeout(animateHeroText, 100);
+});
+
+// Hide scroll indicator on scroll
+let scrollTimeout;
+const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.transition = 'opacity 0.3s ease';
+        } else {
+            scrollIndicator.style.opacity = '0.7';
+        }
+    });
+}
+
