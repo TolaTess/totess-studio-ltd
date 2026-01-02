@@ -1,6 +1,6 @@
-# totess studios Website
+# totess studio Website
 
-A minimalist, professional website for totess studios - a software and gaming startup.
+A minimalist, professional website for totess studio - a software and gaming startup.
 
 ## Features
 
@@ -54,5 +54,5 @@ Update the App Store link in the projects section with your actual App Store URL
 
 ## License
 
-© 2024 totess studios. All rights reserved.
+© 2024 totess studio. All rights reserved.
 
