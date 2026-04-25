@@ -1,150 +1,53 @@
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+// Smooth-scroll offset for fixed nav
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+        const id = link.getAttribute('href');
+        if (id === '#' || id.length < 2) return;
+        const target = document.querySelector(id);
+        if (!target) return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
+        const top = target.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top, behavior: 'smooth' });
     });
 });
 
-// Add active state to navigation on scroll
+// Highlight active section in nav
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
+const linkById = new Map(
+    [...navLinks].map(a => [a.getAttribute('href').slice(1), a])
+);
 
-function highlightNavigation() {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}
-
-window.addEventListener('scroll', highlightNavigation);
-
-// Fade in animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
+const navObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
+        const link = linkById.get(entry.target.id);
+        if (!link) return;
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            navLinks.forEach(a => a.classList.remove('is-active'));
+            link.classList.add('is-active');
         }
     });
-}, observerOptions);
+}, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
 
-// Observe sections for fade-in effect
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
-});
+sections.forEach(s => navObserver.observe(s));
 
-// Make hero visible immediately
-const hero = document.querySelector('.hero');
-if (hero) {
-    hero.style.opacity = '1';
-    hero.style.transform = 'translateY(0)';
-}
+// Reveal-on-scroll (skipped for users who prefer reduced motion)
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// --- GSAP Hero Text Animation ---
-document.addEventListener("DOMContentLoaded", () => {
-    // Check if GSAP is loaded
-    if (typeof gsap === 'undefined') {
-        console.warn('GSAP not loaded, skipping text animation');
-        return;
-    }
+if (!prefersReducedMotion) {
+    const targets = document.querySelectorAll(
+        '.hero-title, .hero-sub, .hero-meta, .section-title, .prose, .stack-grid, .project-head, .project-body, .innovation, .project-cta, .big-link'
+    );
+    targets.forEach(el => el.classList.add('reveal'));
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    const splitText = (element) => {
-        if (!element) return [];
-        const text = element.textContent.trim();
-        const words = text.split(' ');
-        element.innerHTML = '';
-        const chars = [];
-
-        words.forEach((word, wordIndex) => {
-            const wordSpan = document.createElement('span');
-            wordSpan.style.display = 'inline-block';
-            wordSpan.style.whiteSpace = 'nowrap';
-            wordSpan.style.marginRight = '0.25em';
-
-            const wordChars = word.split('');
-            wordChars.forEach(char => {
-                const charSpan = document.createElement('span');
-                charSpan.textContent = char === ' ' ? '\u00A0' : char;
-                charSpan.style.display = 'inline-block';
-                charSpan.classList.add('split-char');
-                wordSpan.appendChild(charSpan);
-                chars.push(charSpan);
-            });
-
-            element.appendChild(wordSpan);
+    const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
         });
-        return chars;
-    };
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
-    const animateHeroText = () => {
-        const h1 = document.querySelector('.hero-title');
-        if (!h1) return;
-
-        // Ensure fonts are loaded before splitting/animating
-        document.fonts.ready.then(() => {
-            const chars = splitText(h1);
-            if (chars.length === 0) return;
-
-            // Set initial state
-            gsap.set(chars, { opacity: 0, y: 40 });
-
-            // Animate on page load
-            gsap.to(chars, {
-                opacity: 1,
-                y: 0,
-                duration: 1.25,
-                ease: 'power3.out',
-                stagger: 0.05,
-                delay: 0.3
-            });
-        });
-    };
-
-    // Wait a bit for GSAP to be fully ready
-    setTimeout(animateHeroText, 100);
-});
-
-// Hide scroll indicator on scroll
-let scrollTimeout;
-const scrollIndicator = document.querySelector('.scroll-indicator');
-if (scrollIndicator) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            scrollIndicator.style.opacity = '0';
-            scrollIndicator.style.transition = 'opacity 0.3s ease';
-        } else {
-            scrollIndicator.style.opacity = '0.7';
-        }
-    });
+    targets.forEach(el => revealObserver.observe(el));
 }
-

@@ -4,137 +4,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TOTESS Studio - Building intelligent tools for a better daily life">
-    <title>TOTESS Studio Ltd</title>
+    <meta name="description" content="TOTESS Studio — a boutique software and gaming studio building intelligent tools for daily life. London, 2026.">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <meta property="og:title" content="TOTESS Studio">
+    <meta property="og:description" content="Building intelligent tools for a better daily life.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-style='italic' fill='%23ff6b35' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+
+    <title>TOTESS Studio — Building intelligent tools for daily life</title>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=TASA+Orbiter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">TOTESS Studio</div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-brand">
+                <span class="nav-mark">T</span>
+                <span class="nav-name">TOTESS Studio</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about"><span class="nav-num">01</span> About</a></li>
+                <li><a href="#work"><span class="nav-num">02</span> Work</a></li>
+                <li><a href="#contact"><span class="nav-num">03</span> Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="orb orb-1"></div>
-            <div class="orb orb-2"></div>
-            <div class="orb orb-3"></div>
-            <div class="hero-grid"></div>
-        </div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="container">
-            <h1 class="hero-title">TOTESS Studio</h1>
-            <p class="hero-subtitle">Building intelligent tools for a better daily life</p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-hero">Explore Our Work</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <div class="arrow"></div>
-        </div>
-    </section>
+    <main id="top">
+        <section class="hero">
+            <div class="wrap">
+                <p class="eyebrow">
+                    <span class="dot"></span>
+                    TOTESS Studio &nbsp;·&nbsp; Est. 2024 &nbsp;·&nbsp; London
+                </p>
+                <h1 class="hero-title">
+                    Building intelligent tools for a <em>better</em> daily life.
+                </h1>
+                <p class="hero-sub">
+                    A boutique software &amp; gaming studio. Currently a solo venture, building products that blend beautiful design with meaningful function.
+                </p>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">Who We Are</h2>
-            <div class="about-content">
-                <p class="about-text about-text-lead">
-                    At <strong>TOTESS Studio</strong>, we are passionate about creating digital experiences that make a difference. 
-                    We are a boutique software and gaming studio currently a solo venture dedicated to building 
-                    products that blend beautiful design with meaningful functionality.
-                </p>
-                <p class="about-text">
-                    Every project we undertake is born from genuine passion and a commitment to excellence. 
-                    We believe in crafting experiences that not only look great but truly enhance the lives of 
-                    those who use them. From concept to launch, we pour our heart into every detail.
-                </p>
-                <p class="about-text">
-                    Our philosophy is simple: we build "Executive Assistants" for your daily life. Whether it's a gaming 
-                    experience or a health utility, our tools are designed to be calm, intelligent, and respectful of your time.
-                </p>
-                <div class="tech-stack">
-                    <h3 class="tech-stack-title">Built With</h3>
-                    <p class="tech-stack-list">Swift / SwiftUI / CoreML / React / Node.js / Firebase / Flutter / Gemini</p>
+                <div class="hero-meta">
+                    <div class="meta-block">
+                        <p class="meta-label">Currently</p>
+                        <p class="meta-value">Shipping TasteTurner. Building what's next.</p>
+                    </div>
+                    <div class="meta-block">
+                        <p class="meta-label">Availability</p>
+                        <p class="meta-value">One consulting engagement, Q3 2026.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">What We Build</h2>
-            <div class="project-card">
-                <div class="project-info">
-                    <h3 class="project-name">TasteTurner</h3>
-                    <p class="project-subtitle">The Gamified Kitchen Intelligence Platform</p>
-                    <div class="project-description">
-                        <p class="project-description-text">
-                            TasteTurner reimagines the diet tracker as a professional culinary service. We replaced the 
-                            calorie-counting chore with a "Sous Chef" AI that turns ingredients into inspiration.
+        <section id="about" class="about">
+            <div class="wrap split">
+                <header class="split-head">
+                    <p class="section-num">01 — About</p>
+                </header>
+                <div class="split-body">
+                    <h2 class="section-title">
+                        We build <em>Executive Assistants</em> for your daily life.
+                    </h2>
+                    <div class="prose">
+                        <p>
+                            Every project is born from genuine passion and a commitment to excellence. We craft experiences that don't just look great — they enhance the lives of the people who use them.
                         </p>
-                        <div class="project-innovation">
-                            <h4 class="innovation-title">Core Innovation:</h4>
-                            <ul class="innovation-list">
-                                <li><strong>Cycle-Syncing Engine:</strong> Proprietary nutrition logic adapting meal plans to hormonal phases.</li>
-                                <li><strong>Computer Vision QC:</strong> "Instant Plate QC" analyzes meals for nutritional density and aesthetics in real-time.</li>
-                                <li><strong>Gamified Inventory:</strong> Reduces food waste by turning the pantry into an "Inspiration Wheel" challenge.</li>
+                        <p>
+                            Whether it's a gaming experience or a health utility, our tools are designed to be calm, intelligent, and respectful of your time.
+                        </p>
+                    </div>
+
+                    <div class="stack-grid">
+                        <div>
+                            <p class="stack-label">Languages</p>
+                            <ul class="stack-list">
+                                <li>Swift</li>
+                                <li>TypeScript</li>
+                                <li>Dart</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="stack-label">Platforms</p>
+                            <ul class="stack-list">
+                                <li>iOS / iPadOS</li>
+                                <li>Web</li>
+                                <li>Flutter</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="stack-label">Intelligence</p>
+                            <ul class="stack-list">
+                                <li>CoreML</li>
+                                <li>Gemini</li>
+                                <li>Firebase</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="project-badges">
-                        <span class="badge">Health & Wellness</span>
-                        <span class="badge">iOS</span>
-                        <span class="badge">Live</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://tasteturner.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                            Visit Website
-                        </a>
-                        <a href="https://apps.apple.com/us/app/tasteturner/id6747295126" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                            Download on the App Store
-                        </a>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Collaborate</h2>
-            <p class="contact-text">
-                We are currently focused on internal products, but we are always open to conversations with 
-                like minded founders about partnerships or technical consulting.
-            </p>
-            <div class="contact-links">
-                <a href="mailto:hello@totessstudios.com" class="contact-link">
-                    <span class="contact-icon">✉</span>
-                    Get in Touch
-                </a>
+        <section id="work" class="work">
+            <div class="wrap">
+                <header class="work-head">
+                    <p class="section-num">02 — Featured work</p>
+                    <p class="work-count">01 / 01</p>
+                </header>
+
+                <article class="project">
+                    <header class="project-head">
+                        <h2 class="project-name">TasteTurner</h2>
+                        <p class="project-tag">The Gamified Kitchen Intelligence Platform</p>
+                    </header>
+
+                    <div class="project-body">
+                        <div class="project-narrative">
+                            <p>
+                                TasteTurner reimagines the diet tracker as a professional culinary service. We replaced the calorie-counting chore with a <em>Sous Chef</em> AI that turns ingredients into inspiration.
+                            </p>
+                        </div>
+                        <dl class="project-specs">
+                            <div><dt>Platform</dt><dd>iOS</dd></div>
+                            <div><dt>Category</dt><dd>Health &amp; Wellness</dd></div>
+                            <div><dt>Status</dt><dd><span class="status-live"></span> Live</dd></div>
+                            <div><dt>Stack</dt><dd>Swift · SwiftUI · CoreML</dd></div>
+                        </dl>
+                    </div>
+
+                    <div class="innovation">
+                        <p class="innovation-eyebrow">Core innovation</p>
+                        <ol class="innovation-grid">
+                            <li>
+                                <p class="inn-num">01</p>
+                                <h3 class="inn-title">Cycle-Syncing Engine</h3>
+                                <p class="inn-text">Proprietary nutrition logic adapting meal plans to hormonal phases.</p>
+                            </li>
+                            <li>
+                                <p class="inn-num">02</p>
+                                <h3 class="inn-title">Computer Vision QC</h3>
+                                <p class="inn-text">Instant Plate QC analyzes meals for nutritional density and aesthetics in real time.</p>
+                            </li>
+                            <li>
+                                <p class="inn-num">03</p>
+                                <h3 class="inn-title">Gamified Inventory</h3>
+                                <p class="inn-text">Reduces food waste by turning the pantry into an Inspiration Wheel challenge.</p>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <footer class="project-cta">
+                        <a href="https://tasteturner.com/" target="_blank" rel="noopener noreferrer" class="link-arrow">
+                            Visit tasteturner.com
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="https://apps.apple.com/us/app/tasteturner/id6747295126" target="_blank" rel="noopener noreferrer" class="link-arrow">
+                            Download on the App Store
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </footer>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="wrap split">
+                <header class="split-head">
+                    <p class="section-num">03 — Collaborate</p>
+                </header>
+                <div class="split-body">
+                    <h2 class="section-title">
+                        Currently building. <em>Always listening.</em>
+                    </h2>
+                    <p class="prose">
+                        Heads-down on internal products, but always open to conversations with like-minded founders about partnerships or technical consulting.
+                    </p>
+                    <a href="mailto:hello@totessstudios.com" class="big-link">
+                        hello@totessstudios.com
+                        <svg width="20" height="20" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 TOTESS Studio Ltd. London.</p>
+        <div class="wrap footer-inner">
+            <p>&copy; 2026 TOTESS Studio Ltd.</p>
+            <p>London, UK</p>
+            <p><a href="#top">Back to top &uarr;</a></p>
         </div>
     </footer>
 
@@ -142,4 +206,3 @@
 </body>
 
 </html>
-
