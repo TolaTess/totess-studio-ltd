@@ -51,3 +51,13 @@ if (!prefersReducedMotion) {
 
     targets.forEach(el => revealObserver.observe(el));
 }
+
+// Google Ads — fire "Submit lead form" conversion when the contact link is clicked
+const contactLink = document.querySelector('.big-link');
+if (contactLink) {
+    contactLink.addEventListener('click', () => {
+        if (typeof gtag === 'function') {
+            gtag('event', 'conversion', { 'send_to': 'AW-346554054/qqhRCJm367scEMb9n6UB' });
+        }
+    });
+}
